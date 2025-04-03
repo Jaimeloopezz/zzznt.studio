@@ -13,6 +13,7 @@ body {
     font-family: 'OwnersTRIALXWide', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 header {
     position: relative;
@@ -237,6 +238,177 @@ section {
     padding: 100px 0;
 }
 
+/* DISCORD  */
+
+.discord {
+    height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+        }
+        #text {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 50px;
+            text-align: center;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            letter-spacing: 0.05em;
+            padding: 1em;
+        }
+        #text span {
+            display: inline-block;
+            width: 1.1ch; /* Mantiene el espacio uniforme entre caracteres */
+            text-align: center;
+            visibility: hidden; /* Oculta los caracteres hasta que se revelen */
+        }
+        #text span.i-adjust {
+            width: 0.7ch; /* Ajuste específico para la letra "i" */
+        }
+        
+        .button {
+            background-color: #000000;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.2s ease-in-out;
+            margin-top: 20px;
+
+        }
+        .button:hover {
+            
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            
+            
+        }
+
+        .button a {
+            color: #000;
+        }
+
+
+/* RECURSOS  */
+
+/* Contenedor principal de las categorías */
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+/* Estilos de las cards de categorías */
+.category-card {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-card .title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Sección de recursos (oculta por defecto) */
+.resources-container {
+    display: none;
+    margin-top: 20px;
+}
+
+.grid-resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilos de las cards de recursos */
+.resource-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.resource-card:hover {
+    transform: scale(1.05);
+}
+
+.resource-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.resource-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de volver */
+.back-btn {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #cc0000;
+}
+
+
+/* FOOTER  */
+
 footer {
 background-color: rgba(0, 0, 0, 0.7);
 }
@@ -281,6 +453,83 @@ color: #ffffff !important;
 font-weight: bold;
 opacity: 1;
 transition: transform 1s ease-in-out;
+}
+
+
+
+
+
+
+/* TEXTO DISCORD  */
+
+
+@media (max-width: 1900px) {
+
+    #text {
+        font-size: 2.5em;
+    }
+
+    
+}
+
+
+@media (max-width: 1600px) {
+
+    #text {
+        font-size: 2em;
+    }
+
+    
+}
+
+@media (max-width: 1400px) {
+
+    #text {
+        font-size: 1.5em;
+    }
+
+    
+}
+
+
+@media (max-width: 1050px) {
+
+    #text {
+        font-size: 1.2em;
+    }
+
+    
+}
+
+
+@media (max-width: 830px) {
+
+    #text {
+        font-size: 1em;
+    }
+
+    
+}
+
+
+
+@media (max-width: 680px) {
+
+    #text {
+        font-size: 0.8em;
+    }
+
+    
+}
+
+
+@media (max-width: 530px) {
+
+    #text {
+        font-size: 0.7em;
+    }
+
+    
 }
 
  /* Estilos cuando el menú hamburguesa se abre */
@@ -354,7 +603,7 @@ transition: transform 1s ease-in-out;
 
 
 
-@media (max-width: 767px){
+@media (max-width: 890px){
 
 footer h6{
 font-size: 0.9rem;

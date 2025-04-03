@@ -6,6 +6,9 @@
     <title>Estudio de Diseño 3D</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- GSAP  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
     
@@ -120,8 +123,67 @@
     </section>
     
 
+    <section class="discord">
+
+     <div class="section"></div> <!-- Espacio antes de la animación -->
+    <div class="section" id="animated-section">
+        <div id="text"></div>
+        <a href="https://discord.gg/FFerqwMX" target="_blank" class="button">DESCUBRE ZZZNT</a>
+    </div>
+    <div class="section"></div> <!-- Espacio después de la animación -->
+    
+    <script>
+        function scrambleText(target, newText, duration) {
+            let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+            let newLength = newText.length;
+            let time = duration * 1000;
+            let steps = 30;
+            let stepTime = time / steps;
+            
+            target.innerHTML = newText.split('').map(char => {
+                let className = char.toLowerCase() === 'i' ? 'i-adjust' : '';
+                return `<span class="${className}">${char}</span>`;
+            }).join('');
+            
+            let spans = target.querySelectorAll('span');
+            
+            function updateText(step) {
+                spans.forEach((span, i) => {
+                    if (i < step * newLength / steps) {
+                        span.innerText = newText[i];
+                        span.style.visibility = "visible"; // Muestra el carácter cuando corresponde
+                    } else {
+                        span.innerText = chars[Math.floor(Math.random() * chars.length)];
+                        span.style.visibility = "visible";
+                    }
+                });
+                if (step < steps) {
+                    setTimeout(() => updateText(step + 1), stepTime);
+                }
+            }
+            updateText(0);
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+        let textElement = document.getElementById("text");
+        let textContent = "ENTRA EN NUESTRA COMUNIDAD DE DISCORD";
+        
+        ScrollTrigger.create({
+            trigger: "#animated-section",
+            start: "top 75%",
+            onEnter: () => {
+                scrambleText(textElement, textContent, 2);
+            },
+            onLeaveBack: () => {
+                scrambleText(textElement, textContent, 2);
+            }
+        });
+    </script>
+    
+    </section>
 
 
+    
    
 
     <footer class="text-center">
