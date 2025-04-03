@@ -9,6 +9,8 @@
     <!-- GSAP  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- AOS  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     
@@ -61,7 +63,7 @@
         <h2 class="text-center mb-4">Proyectos</h2>
 
 
-        <div class="project expanded mb-4" onclick="toggleProject(this)">
+        <div data-aos="fade-up" class="project expanded mb-4" onclick="toggleProject(this)">
             <video src="img\JAIME LOPEZ SHOWREEL.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 01</h3>
@@ -71,7 +73,7 @@
         </div>
 
 
-        <div class="project mb-4" onclick="toggleProject(this)">
+        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
             <video src="img\Firefly translucent minimalist 3D elements floating and rotating isolated on a black backgound 33897.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 02</h3>
@@ -81,7 +83,7 @@
         </div>
 
 
-        <div class="project mb-4" onclick="toggleProject(this)">
+        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
             <video src="img\BUGATTI\bugatti video horizontal.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 03</h3>
@@ -91,7 +93,7 @@
         </div>
 
 
-        <div class="project mb-4" onclick="toggleProject(this)">
+        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
             <video src="img\CELLBROKE\CELL BROKE soundss.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 04</h3>
@@ -100,7 +102,7 @@
             <div class="project-text"><a href="">CELL BROKE</a></div>
         </div>
 
-        <div class="project mb-4" onclick="toggleProject(this)">
+        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
             <video src="img\FRACTAL 02\.FRACTAL 2 bucle.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 05</h3>
@@ -109,7 +111,7 @@
             <div class="project-text"><a href="">FRACTAL 02</a></div>
         </div>
 
-        <div class="project mb-4" onclick="toggleProject(this)">
+        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
             <video src="img\SONYALPHA7IV\SPOT SONY ALPHA 7 IV.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 06</h3>
@@ -136,8 +138,8 @@
         function scrambleText(target, newText, duration) {
             let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
             let newLength = newText.length;
-            let time = duration * 1000;
-            let steps = 30;
+            let time = duration * 800;
+            let steps = 50;
             let stepTime = time / steps;
             
             target.innerHTML = newText.split('').map(char => {
@@ -151,10 +153,12 @@
                 spans.forEach((span, i) => {
                     if (i < step * newLength / steps) {
                         span.innerText = newText[i];
-                        span.style.visibility = "visible"; // Muestra el carácter cuando corresponde
+                        span.style.visibility = "visible";
+            span.style.opacity = "1"; // Caracter revelado al 100%
                     } else {
                         span.innerText = chars[Math.floor(Math.random() * chars.length)];
                         span.style.visibility = "visible";
+                        span.style.opacity = "0.5"; // Caracter aún no revelado al 50%
                     }
                 });
                 if (step < steps) {
@@ -183,6 +187,7 @@
     </section>
 
 
+    
     
    
 
@@ -255,7 +260,10 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
 
     
 </body>

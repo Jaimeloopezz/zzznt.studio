@@ -136,7 +136,7 @@ transition: transform 1s ease-in-out;
     overflow: hidden;
     cursor: pointer;
     transition: height 0.5s ease-in-out;
-    height: 150px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,21 +150,41 @@ transition: transform 1s ease-in-out;
 .project:hover {
     
     filter: none;
+    
 }
 
 .project.expanded {
     height: 70vh;
     
     filter: none;
+    
 }
+
+.project.expanded video{
+    height: 70vh;
+    
+    filter: none;
+    filter: blur(0);
+}
+
 .project video {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
+    border-radius: 30px;
+    filter: blur(20px);  /* Aplica el desenfoque por defecto */
+    transition: filter 0.5s ease-in-out;  /* Transición suave para eliminar el desenfoque */
+}
+
+.project video:hover {
+    border: 3px solid #fff;
+    transition: all 0.1s ease-in-out;
+    filter: blur(0);
+    
 }
 
 .project-info, .project-text {
@@ -230,9 +250,12 @@ transition: transform 0.5s ease-in-out;
     bottom: 50%;
     transform: translate(50%, 50%);
     font-size: 6rem;
+    text-align: center;
     
     
 }
+
+
 
 section {
     padding: 100px 0;
@@ -241,7 +264,7 @@ section {
 /* DISCORD  */
 
 .discord {
-    height: 60vh;
+    height: 40vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -294,6 +317,9 @@ section {
         .button a {
             color: #000;
         }
+
+
+
 
 
 /* RECURSOS  */
@@ -456,9 +482,79 @@ transition: transform 1s ease-in-out;
 }
 
 
+/* PROYECTOS  */
 
 
+@media (max-width: 1400px) {
 
+    .project-info h3 {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    .project-text {
+        font-size: 2.5rem;
+        
+    }
+
+    
+}
+
+
+@media (max-width: 1050px) {
+
+    .project-info h3 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .project-text {
+        font-size: 2rem;
+        
+    }
+
+    .project.expanded .project-text {    
+        font-size: 5rem; 
+    }
+}
+
+
+@media (max-width: 830px) {
+
+    .project-info h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .project-text {
+        font-size: 1.5rem;
+        
+    }
+
+    .project.expanded .project-text {    
+        font-size: 4rem; 
+    }
+
+}
+
+
+@media (max-width: 680px) {
+
+    .project-info h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .project-text {
+        font-size: 1.2rem;
+        
+    }
+
+    .project.expanded .project-text {    
+        font-size: 3rem; 
+    }
+
+}
 
 /* TEXTO DISCORD  */
 
