@@ -157,42 +157,42 @@ transition: transform 1s ease-in-out;
 }
 
 
-
 .project {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: height 0.5s ease-in-out;
-    height: 200px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
     border-radius: 30px;
-    
+   
     filter: grayscale(1);
 }
 
+
 .project:hover {
-    
+   
     filter: none;
-    
 }
+
 
 .project.expanded {
     height: 70vh;
-    
+   
     filter: none;
-    
 }
 
 .project.expanded video{
     height: 70vh;
-    
+   
     filter: none;
     filter: blur(0);
 }
+
 
 .project video {
     position: absolute;
@@ -200,25 +200,29 @@ transition: transform 1s ease-in-out;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    border-radius: 30px;
     filter: blur(20px);  /* Aplica el desenfoque por defecto */
     transition: all 0.5s ease-in-out;  /* Transición suave para eliminar el desenfoque */
+
 }
 
 .project video:hover {
     border: 3px solid #fff;
     transition: all 0.1s ease-in-out;
     filter: blur(0);
-    
+   
 }
+
 
 .project-info, .project-text {
     position: absolute;
     transition: all 0.5s ease-in-out;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+
+
 .project-info {
     top: 50px;
 left: 50px;
@@ -229,13 +233,16 @@ transition: transform 0.5s ease-in-out;
 }
 
 
+
+
 .project-info p {
     opacity: 0; /* Oculto por defecto */
     transform: translateY(-100%); /* Comienza fuera de la vista (arriba) */
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, top 0.5s ease-in-out;
     font-family: "roc-grotesk", sans-serif;
-    
+   
 }
+
 
 .project.expanded .project-info p {
     opacity: 1; /* Aparece al expandirse */
@@ -244,7 +251,9 @@ transition: transform 0.5s ease-in-out;
     transform: translateY(0) scale(1.5); /* Mueve desde arriba hasta su posición final */
     transition-delay: 0.3s; /* Retraso de medio segundo */
 
+
 }
+
 
 .project.expanded .project-info {
     top: 50px;
@@ -252,6 +261,7 @@ transition: transform 0.5s ease-in-out;
     transform: translateY(-8px); /* Ajustado para que suba de forma progresiva */
     text-align: left;
 }
+
 
 .project-info h3 {
     font-size: 3rem;
@@ -266,27 +276,32 @@ transition: transform 0.5s ease-in-out;
     text-transform: uppercase;
 }
 
+
 .project-text a {
     text-decoration: none;
     color: #fff;
-    
+   
 }
+
 
 .project.expanded .project-text {
     right: 50%;
     bottom: 50%;
     transform: translate(50%, 50%);
     font-size: 6rem;
-    text-align: center;
-    
-    
+   
+   
 }
-
 
 
 section {
     padding: 100px 0;
 }
+
+
+
+
+
 
 /* DISCORD  */
 
@@ -346,6 +361,86 @@ section {
         }
 
 
+
+
+
+
+
+
+/* MERCHANDISING  */
+
+
+
+
+.product-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 20px;
+  }
+  
+  .product-card {
+    text-align: center;
+  }
+  
+  .image-container {
+    position: relative;
+    overflow: hidden; /* Evita que la imagen salga del contenedor */
+  }
+  
+  .product-image {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Transición para zoom y opacidad */
+  }
+  
+  .image-container:hover .product-image {
+    transform: scale(1.1); /* Zoom suave */
+  }
+
+  .add-to-cart {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .image-container:hover .add-to-cart {
+    display: block;
+  }
+  
+  .color-options {
+    margin-top: 10px;
+  }
+  
+  .color-circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+
+  .color-circle:nth-child(1) {
+    background-color: #000000; 
+    border: solid 1px white;
+  }
+  
+  .color-circle:nth-child(2) {
+    background-color: #ffffff; 
+  }
+  
+  #circle-azul {
+    background-color: #19ffff;
+  }
 
 
 /* RECURSOS  */

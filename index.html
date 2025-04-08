@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- AOS  -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
 </head>
 <body>
     
@@ -62,21 +63,29 @@
         </div>
     </header>
     
-    <section id="proyectos" class="container-fluid mt-5">
+
+    <!-- PROYECTOS  -->
+
+
+    <section data-aos="fade-up" id="proyectos" class="container-fluid mt-5">
         <h2 class="text-center mb-4">Proyectos</h2>
 
 
-        <div data-aos="fade-up" class="project expanded mb-4" onclick="toggleProject(this)">
+
+
+        <div class="project expanded mb-4" onclick="toggleProject(this)">
             <video src="img\JAIME LOPEZ SHOWREEL.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 01</h3>
                 <p>Diseñador: Juan Pérez</p>
             </div>
-            <div class="project-text"><a href="">SHOWREEL</a></div> 
+            <div class="project-text"><a href="">SHOWREEL</a></div>
         </div>
 
 
-        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
+
+
+        <div class="project mb-4" onclick="toggleProject(this)">
             <video src="img\Firefly translucent minimalist 3D elements floating and rotating isolated on a black backgound 33897.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 02</h3>
@@ -86,17 +95,21 @@
         </div>
 
 
-        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
+
+
+        <div class="project mb-4" onclick="toggleProject(this)">
             <video src="img\BUGATTI\bugatti video horizontal.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 03</h3>
                 <p>Diseñador: Juan Pérez</p>
             </div>
-            <div class="project-text"><a href="">BUGATTI CHIRON</a></div> 
+            <div class="project-text"><a href="">BUGATTI CHIRON</a></div>
         </div>
 
 
-        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
+
+
+        <div class="project mb-4" onclick="toggleProject(this)">
             <video src="img\CELLBROKE\CELL BROKE soundss.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 04</h3>
@@ -105,7 +118,8 @@
             <div class="project-text"><a href="">CELL BROKE</a></div>
         </div>
 
-        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
+
+        <div class="project mb-4" onclick="toggleProject(this)">
             <video src="img\FRACTAL 02\.FRACTAL 2 bucle.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 05</h3>
@@ -114,7 +128,8 @@
             <div class="project-text"><a href="">FRACTAL 02</a></div>
         </div>
 
-        <div data-aos="fade-up" class="project mb-4" onclick="toggleProject(this)">
+
+        <div class="project mb-4" onclick="toggleProject(this)">
             <video src="img\SONYALPHA7IV\SPOT SONY ALPHA 7 IV.mp4" autoplay loop muted></video>
             <div class="project-info">
                 <h3>PROYECTO 06</h3>
@@ -125,7 +140,11 @@
 
 
 
+
+
+
     </section>
+
     
 
     <section class="discord">
@@ -139,7 +158,82 @@
 
     
     
+
+
+
+
+
+
+    <!-- MERCHANDISING  -->
+    <section class="product-grid">
+        <div class="product-card">
+          <div class="image-container">
+            <img src="img\MERCHANDISING\BUFANDA_negra.png" alt="Producto 1" class="product-image" id="product1-image">
+            <button class="add-to-cart">COMPRAR</button>
+          </div>
+          <h3>Bufanda</h3>
+          <p>29.99€</p>
+          <div class="color-options">
+            <span class="color-circle" data-image="img\MERCHANDISING\BUFANDA_negra.png"></span>
+            <span class="color-circle" data-image="img\MERCHANDISING\BUFANDA_blanca.png"></span>
+          </div>
+        </div>
     
+        <!-- Repite las tarjetas para más productos -->
+        <div class="product-card">
+            <div class="image-container">
+              <img src="img\MERCHANDISING\SKATE.png" alt="Producto 1" class="product-image" id="product1-image">
+              <button class="add-to-cart">COMPRAR</button>
+            </div>
+            <h3>Bufanda</h3>
+            <p>29.99€</p>
+            <div class="color-options">
+              <span class="color-circle" data-image="img\MERCHANDISING\SKATE.png"></span>
+              <span class="color-circle" data-image="img\MERCHANDISING\SKATE_blanco.png"></span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="image-container">
+              <img src="img\MERCHANDISING\LLAVERO_negro.png" alt="Producto 1" class="product-image" id="product1-image">
+              <button class="add-to-cart">COMPRAR</button>
+            </div>
+            <h3>Llavero</h3>
+            <p>9.99€</p>
+            <div class="color-options">
+              <span class="color-circle" data-image="img\MERCHANDISING\LLAVERO_negro.png"></span>
+              <span class="color-circle" data-image="img\MERCHANDISING\LLAVERO_blanco.png"></span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="image-container">
+              <img src="img\MERCHANDISING\LLAVERO_iceazul.png" alt="Producto 1" class="product-image" id="product1-image">
+              <button class="add-to-cart">COMPRAR</button>
+            </div>
+            <h3>Llavero Ice</h3>
+            <p>9.99€</p>
+            <div class="color-options">
+                <span id="circle-azul"  class="color-circle" data-image="img\MERCHANDISING\LLAVERO_iceazul.png"></span>
+              <span class="color-circle" data-image="img\MERCHANDISING\LLAVERO_iceblanco.png"></span>
+              
+            </div>
+          </div>
+      </section>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
@@ -295,6 +389,7 @@ window.addEventListener('load', () => {
         AOS.init();
       </script>
 
-    
+<script src="script.js"></script>
+
 </body>
 </html>
