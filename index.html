@@ -14,7 +14,10 @@
 </head>
 <body>
     
-    
+    <div class="loader" id="loader">
+        <video src="img\grillz2.mp4" autoplay muted playsinline></video>
+    </div>
+
 
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-md fixed-top">
@@ -50,7 +53,7 @@
     
     <header>
         <video class="header-video" autoplay loop muted>
-            <source src="img\Firefly translucent minimalist 3D elements floating and rotating isolated on a black backgound 33897.mp4" type="video/mp4">
+            <source src="img\video header glitch.mp4" type="video/mp4">
         </video>
         <div class="mask"></div>
         <div class="header-content container text-center">
@@ -126,15 +129,42 @@
     
 
     <section class="discord">
+        <div class="section"></div> <!-- Espacio antes de la animación -->
+        <div class="section" id="animated-section">
+            <div id="text"></div>
+            <a href="https://discord.gg/FFerqwMX" target="_blank" class="button">DESCUBRE ZZZNT</a>
+        </div>
+        <div class="section"></div> <!-- Espacio después de la animación -->
+    </section>
 
-     <div class="section"></div> <!-- Espacio antes de la animación -->
-    <div class="section" id="animated-section">
-        <div id="text"></div>
-        <a href="https://discord.gg/FFerqwMX" target="_blank" class="button">DESCUBRE ZZZNT</a>
-    </div>
-    <div class="section"></div> <!-- Espacio después de la animación -->
+    
+    
+    
+
+
     
     <script>
+         let loader = document.getElementById("loader");
+
+// Ocultar loader después de 2 segundos o al hacer scroll
+window.addEventListener('load', () => {
+    const fadeOutLoader = () => {
+        if (loader.style.display !== "none") {
+            gsap.to(loader, {
+                duration: 1,
+                opacity: 0,
+                onComplete: () => loader.style.display = "none"
+            });
+        }
+    };
+
+    setTimeout(fadeOutLoader, 2000);
+
+    window.addEventListener("scroll", () => {
+        fadeOutLoader();
+    }, { once: true });
+});
+
         function scrambleText(target, newText, duration) {
             let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
             let newLength = newText.length;

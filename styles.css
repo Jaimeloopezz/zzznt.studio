@@ -18,7 +18,7 @@ body {
 header {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -26,6 +26,32 @@ header {
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
 }
+
+
+/* loader  */
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* header  */
 
 
 .header-video {
@@ -42,7 +68,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at var(--x, var(--y)), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 1) 50%);
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 30%);
     pointer-events: none;
 }
 .header-content {
@@ -78,6 +104,7 @@ header {
 /* -- NAV BAR -- */
 .navbar{
 background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 80%, rgba(0, 0, 0, 0));
+
 }
 
 
@@ -177,7 +204,7 @@ transition: transform 1s ease-in-out;
     object-fit: cover;
     border-radius: 30px;
     filter: blur(20px);  /* Aplica el desenfoque por defecto */
-    transition: filter 0.5s ease-in-out;  /* Transición suave para eliminar el desenfoque */
+    transition: all 0.5s ease-in-out;  /* Transición suave para eliminar el desenfoque */
 }
 
 .project video:hover {
@@ -317,7 +344,6 @@ section {
         .button a {
             color: #000;
         }
-
 
 
 
