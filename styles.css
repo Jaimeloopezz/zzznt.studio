@@ -442,8 +442,158 @@ section {
     background-color: #19ffff;
   }
 
+  #circle-azul {
+    background-color: #19a5f7;
+  }
+
   #circle-marron {
     background-color: #6d4406;
+  }
+
+
+
+
+
+/* EDITABLE  */
+
+
+
+.product-customizer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .customizer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .preview-container {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .cap-preview {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .cap-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease;
+  }
+  
+  .options-container {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .color-section {
+    margin-bottom: 20px;
+  }
+  
+  .color-section h3 {
+    margin-bottom: 10px;
+  }
+  
+  .color-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .color-option, .star-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .color-option:hover, .star-option:hover {
+    transform: scale(1.1);
+  }
+  
+  .color-option.selected, .star-option.selected {
+    border: 2px solid #000;
+    transform: scale(1.1);
+  }
+  
+  /* Estilos específicos para cada color de opción */
+  .color-option[data-color="black"], .star-option[data-color="black"] {
+    background-color: #000;
+  }
+  
+  .color-option[data-color="blue"], .star-option[data-color="blue"] {
+    background-color: #1e90ff;
+  }
+  
+  .color-option[data-color="brown"], .star-option[data-color="brown"] {
+    background-color: #8b4513;
+  }
+  
+  .color-option[data-color="green"], .star-option[data-color="green"] {
+    background-color: #2e8b57;
+  }
+  
+  .color-option[data-color="purple"], .star-option[data-color="purple"] {
+    background-color: #8a2be2;
+  }
+  
+  .color-option[data-color="red"], .star-option[data-color="red"] {
+    background-color: #ff0000;
+  }
+  
+  .color-option[data-color="yellow"], .star-option[data-color="yellow"] {
+    background-color: #ffd700;
+  }
+  
+  .price-container {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .add-cart-btn {
+    padding: 12px 25px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-cart-btn:hover {
+    background-color: #333;
+  }
+  
+  /* Para dispositivos móviles */
+  @media (max-width: 768px) {
+    .customizer-container {
+      flex-direction: column;
+    }
+    
+    .cap-preview {
+      padding-bottom: 80%;
+    }
   }
 
 
