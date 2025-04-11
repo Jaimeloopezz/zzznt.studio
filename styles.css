@@ -465,12 +465,7 @@ section {
     }
   }
   
-  @media (max-width: 480px) {
-    .product-grid {
-      grid-template-columns: repeat(1, 1fr); /* Cambia a 1 producto por fila en pantallas muy pequeñas */
-    }
-  }
-
+  
 
 
 
