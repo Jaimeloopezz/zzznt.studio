@@ -69,13 +69,13 @@ transition: transform 1s ease-in-out;
   max-width: 1200px;
   margin: 50px auto;
   padding: 0 20px;
-  padding-top: 100px;
+  padding-top: 40px;
 }
 
 /* Contenedor de la imagen principal con fondo gris oscuro */
 .product-gallery {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   background: #232323;
   border-radius: 14px;
   padding: 24px;

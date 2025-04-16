@@ -140,7 +140,7 @@ body {
   .eliminar:hover {
     color: #ff0000;
   }
-  @media (min-width: 601px) {
+  @media (min-width: 715px) {
     .carrito-layout {
       flex-direction: row;
       align-items: flex-start;
@@ -156,7 +156,7 @@ body {
       justify-content: flex-end;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 715px) {
     .container { padding: 8px; }
     .carrito-layout { flex-direction: column; gap: 24px; }
     .carrito-sidebar { max-width: 100%; margin-left: 0; }
