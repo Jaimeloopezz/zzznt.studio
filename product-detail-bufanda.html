@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detalle del Producto</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="product-detail.css">
+  
+</head>
+<body>
+
+    
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid py-4 px-5">
+            <a class="navbar-brand" href="index.html">
+                <img src="img\ZZZNT\LOGOTIPO_HORIZONTAL_BLANCO.png" alt="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav px-3 py-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#archive">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://orangecollective.cargo.site/home">MERCH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+  <div class="product-detail-container">
+    <!-- Imagen principal con fondo gris oscuro -->
+    <div class="product-gallery">
+      <img
+        id="mainImage"
+        class="main-image"
+        src="img\MERCHANDISING\BUFANDA_negra.png"
+        alt="Imagen principal del producto"
+      />
+    </div>
+
+    <div class="product-info-detail">
+      <h1 class="product-title">BUFANDA <br>ZZZNT</h1>
+      <p class="product-price">29.99€</p>
+
+      <div class="product-colors">
+        <h3>Color</h3>
+        <div class="color-selector">
+          <img
+            class="color-thumb selected"
+            src="img\MERCHANDISING\BUFANDA_negra.png"
+            alt="Negro"
+            data-image="img\MERCHANDISING\BUFANDA_negra.png"
+            title="Negro"
+          />
+          <img
+            class="color-thumb"
+            src="img\MERCHANDISING\BUFANDA_blanca.png"
+            alt="Rojo"
+            data-image="img\MERCHANDISING\BUFANDA_blanca.png"
+            title="Rojo"
+          />
+          
+        </div>
+      </div>
+
+      <div class="product-sizes">
+        <h3>Talla</h3>
+        <div class="size-selector">
+          <button class="size-btn" data-size="XS">XS</button>
+          <button class="size-btn" data-size="S">S</button>
+          <button class="size-btn selected" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+        </div>
+      </div>
+
+      <button class="add-to-cart-detail">Añadir al carrito</button>
+
+      <div class="product-description">
+        <p>
+          Descripción detallada del producto. Características, material,
+          instrucciones de cuidado, etc.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mainImage = document.getElementById("mainImage");
+      const colorThumbs = document.querySelectorAll(".color-thumb");
+
+      colorThumbs.forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          if (thumb.classList.contains("selected")) return;
+          colorThumbs.forEach((t) => t.classList.remove("selected"));
+          thumb.classList.add("selected");
+          const newSrc = thumb.getAttribute("data-image");
+          mainImage.style.opacity = 0;
+          setTimeout(() => {
+            mainImage.src = newSrc;
+            mainImage.style.opacity = 1;
+          }, 300);
+        });
+      });
+
+      // Tallas
+      const sizeButtons = document.querySelectorAll(".size-btn");
+      sizeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sizeButtons.forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+        });
+      });
+
+      // Añadir al carrito
+      document.querySelector(".add-to-cart-detail").addEventListener("click", () => {
+        const color = document.querySelector(".color-thumb.selected").alt;
+        const size = document.querySelector(".size-btn.selected").dataset.size;
+        alert(`Producto añadido: Color ${color}, Talla ${size}`);
+      });
+    });
+  </script>
+</body>
+</html>
+

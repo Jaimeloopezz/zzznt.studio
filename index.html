@@ -24,7 +24,7 @@
 
 
     <!-- Menú de navegación -->
-    <nav class="navbar navbar-expand-md fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid py-4 px-5">
             <a class="navbar-brand" href="index.html">
                 <img src="img\ZZZNT\LOGOTIPO_HORIZONTAL_BLANCO.png" alt="">
@@ -48,6 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">CONTACT</a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
@@ -169,10 +170,13 @@
 
     <!-- MERCHANDISING  -->
     <section class="product-grid">
-        <div data-aos="fade-up" class="product-card">
+        <div data-aos="fade-up" class="product-card" data-product-id="1">
           <div class="image-container">
-            <img src="img\MERCHANDISING\BUFANDA_negra.png" alt="Producto 1" class="product-image" id="product1-image">
-            <button class="add-to-cart">COMPRAR</button>
+            <a href="product-detail-bufanda.html">
+              <img src="img\MERCHANDISING\BUFANDA_negra.png" alt="Producto 1" class="product-image" id="product1-image">
+              <button class="add-to-cart">COMPRAR</button>
+            </a>
+            
           </div>
           <h3>BUFANDA</h3>
           <p>29.99 €</p>
@@ -185,8 +189,11 @@
         <!-- Repite las tarjetas para más productos -->
         <div data-aos="fade-up" class="product-card">
             <div class="image-container">
-              <img src="img\MERCHANDISING\SKATE.png" alt="Producto 1" class="product-image" id="product1-image">
-              <button class="add-to-cart">COMPRAR</button>
+              <a href="product-detail-skate.html">
+                <img src="img\MERCHANDISING\SKATE.png" alt="Producto 1" class="product-image" id="product1-image">
+                <button class="add-to-cart">COMPRAR</button>
+              </a>
+              
             </div>
             <h3>SKATE</h3>
             <p>29.99 €</p>
@@ -201,8 +208,11 @@
 
           <div data-aos="fade-up" class="product-card">
             <div class="image-container">
-              <img src="img\MERCHANDISING\CINTOrespl.png" alt="Producto 1" class="product-image" id="product1-image">
+              <a href="product-detail-cinto.html">
+                <img src="img\MERCHANDISING\CINTOrespl.png" alt="Producto 1" class="product-image" id="product1-image">
               <button class="add-to-cart">COMPRAR</button>
+              </a>
+              
             </div>
             <h3>CINTO</h3>
             <p>29.99 €</p>
@@ -558,6 +568,8 @@ window.addEventListener('load', () => {
       </script>
 
 <script src="script.js"></script>
+
+
 
 </body>
 </html>

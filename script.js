@@ -121,3 +121,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
+//  PRODUCT DETAIL
+
+
+document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    // Evitar que el evento se dispare si se hace clic en el botón "Añadir al carrito"
+    if (!e.target.classList.contains('add-to-cart')) {
+      // Obtener el ID o slug del producto
+      const productId = this.getAttribute('data-product-id');
+      // Redirigir a la página de detalle
+      window.location.href = `product-detail.html?id=${productId}`;
+    }
+  });
+});
+
+// Para los botones "Añadir al carrito" en la vista de grid
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.stopPropagation(); // Evitar que se propague al contenedor padre
+    // Aquí puedes añadir la lógica para añadir directamente al carrito
+    // O redirigir a la página de detalle
+    const productId = this.closest('.product-card').getAttribute('data-product-id');
+    window.location.href = `product-detail.html?id=${productId}`;
+  });
+});
+
+
+
+
+
+// POP UP CARRITO 
+
+
