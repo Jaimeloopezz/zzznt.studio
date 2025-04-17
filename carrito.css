@@ -1,7 +1,7 @@
 body {
-    background-color: #000;
+    background-color: #0c0c0c;
     color: #fff;
-    font-family: 'Arial', sans-serif;
+    font-family: 'OwnersTRIALXWide', sans-serif;
     margin: 0;
     padding: 0;
   }
@@ -12,6 +12,7 @@ body {
     background: #232323;
     border-radius: 12px;
     min-height: 60vh;
+    font-family: 'Arial', sans-serif;
   }
   h1 {
     text-align: center;
@@ -78,9 +79,11 @@ body {
   .btn-finalizar {
     background: #ffd700;
     color: #232323;
+    width: 100%;
   }
   .btn-finalizar:hover {
     background: #e6c200;
+    color: #232323;
   }
   .producto-carrito {
     display: flex;
