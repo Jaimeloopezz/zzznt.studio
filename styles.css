@@ -142,12 +142,9 @@ color: #fff;
 color: #ffffff;
 opacity: 0.8;
 font-size: 1.5rem;
+transition: 0.5s all ease-in-out;
 }
 
-.nav-link.active {
-font-weight: bold;
-color: #ffffff !important;
-}
 
 .nav-link:hover {
 color: #ffffff !important;
@@ -454,6 +451,12 @@ section {
 
 
   @media (max-width: 1200px) {
+    .nav-link {
+      
+      font-size: 1.2rem;
+      
+      }
+
     .product-grid {
       grid-template-columns: repeat(3, 1fr); /* Cambia a 3 productos por fila en pantallas medianas */
     }

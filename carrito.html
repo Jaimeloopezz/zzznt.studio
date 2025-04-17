@@ -55,7 +55,10 @@
         <div id="resumen" class="resumen"></div>
         <div class="acciones-carrito">
           <button id="vaciar" class="btn btn-vaciar">Vaciar Carrito</button>
-          <button id="finalizar" class="btn btn-finalizar">Finalizar Pedido</button>
+          <a href="pedido.html">
+            <button id="finalizar" class="btn btn-finalizar">Finalizar Pedido</button>
+          </a>
+          
         </div>
       </div>
     </div>
@@ -140,18 +143,7 @@
       }
     });
 
-    // Finalizar pedido
-    document.getElementById('finalizar').addEventListener('click', () => {
-      if (carrito.length === 0) {
-        alert('El carrito está vacío.');
-        return;
-      }
-      alert('¡Gracias por tu compra!');
-      carrito = [];
-      localStorage.removeItem('carrito');
-      renderizarCarrito();
-      // Aquí puedes redirigir a una página de pago o mostrar un resumen final
-    });
+    
 
     // Render inicial
     renderizarCarrito();

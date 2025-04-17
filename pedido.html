@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formalizar Pedido - ZZZNT.STUDIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body { background: #121212; color: #fff; font-family: Arial, sans-serif; }
+    .container { max-width: 500px; margin: 60px auto; background: #232323; border-radius: 12px; padding: 32px; }
+    input, textarea { width: 100%; padding: 10px; margin-bottom: 18px; border-radius: 5px; border: 1px solid #444; background: #181818; color: #fff; }
+    label { font-weight: bold; }
+    button { padding: 12px 24px; background: #ffd700; color: #232323; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    button:hover { background: #e6c200; }
+    .pedido-resumen { background: #181818; border-radius: 8px; padding: 18px; margin-bottom: 20px; }
+    .pedido-resumen img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px; vertical-align: middle; }
+    .success, .error { margin-top: 18px; font-weight: bold; }
+    .success { color: #6fcf97; }
+    .error { color: #e74c3c; }
+    /* POPUP */
+    .popup-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .popup-content {
+      background: #232323;
+      color: #fff;
+      border-radius: 14px;
+      padding: 38px 32px 32px 32px;
+      text-align: center;
+      max-width: 90vw;
+      min-width: 260px;
+      box-shadow: 0 8px 32px #000a;
+      animation: popupfadein 0.25s;
+    }
+    .popup-content h2 {
+      color: #ffd700;
+      margin-bottom: 18px;
+    }
+    .popup-content button {
+      margin-top: 22px;
+      background: #ffd700;
+      color: #232323;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 34px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .popup-content button:hover {
+      background: #e6c200;
+    }
+    @keyframes popupfadein { from { opacity:0; transform:scale(0.98);} to { opacity:1; transform:scale(1);} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Formalizar Pedido</h2>
+    <div id="pedidoResumen" class="pedido-resumen"></div>
+    <form id="formPedido" autocomplete="off">
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
+      <label>Apellidos</label>
+      <input type="text" name="apellidos" required>
+      <label>Dirección de envío</label>
+      <input type="text" name="direccion" required>
+      <label>Código Postal</label>
+      <input type="text" name="cp" required>
+      <label>Ciudad</label>
+      <input type="text" name="ciudad" required>
+      <label>Teléfono</label>
+      <input type="tel" name="telefono" required>
+      <label>Correo electrónico</label>
+      <input type="email" name="email" required>
+      <button type="submit">Procesar pedido</button>
+    </form>
+    <div id="mensaje"></div>
+  </div>
+
+  <!-- POPUP AGRADECIMIENTO -->
+  <div id="popup-gracias" class="popup-backdrop" style="display:none;">
+    <div class="popup-content">
+      <h2>¡Gracias por tu pedido!</h2>
+      <p>Hemos recibido tu solicitud.<br>En breve nos pondremos en contacto contigo.<br><br>
+      Puedes volver a la página principal cuando quieras.</p>
+      <button id="volver-inicio">VOLVER A ZZZNT</button>
+    </div>
+  </div>
+
+  <script>
+    // Inicializa EmailJS con tu Public Key
+    emailjs.init('GVJy8IH9edQPxi08I');
+
+    // Muestra el resumen del pedido
+    function mostrarResumen() {
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      let total = 0;
+      let html = '';
+      let resumenTxt = '';
+      carrito.forEach(prod => {
+        total += prod.precio * prod.cantidad;
+        html += `<div>
+          <img src="${prod.imagen}" alt="">
+          <span>${prod.nombre} (${prod.color}, Talla: ${prod.talla}) x${prod.cantidad} - ${prod.precio.toFixed(2)} €</span>
+        </div>`;
+        resumenTxt += `${prod.nombre} (${prod.color}, Talla: ${prod.talla}) x${prod.cantidad} - ${prod.precio.toFixed(2)} €\n`;
+      });
+      html += `<div style="margin-top:10px;"><strong>Coste de envío:</strong> 5.00 €</div>`;
+      html += `<div style="margin-top:4px;"><strong>Total:</strong> ${(total+5).toFixed(2)} €</div>`;
+      document.getElementById('pedidoResumen').innerHTML = html;
+      return {
+        total: (total+5).toFixed(2),
+        resumenHtml: html,
+        resumenTxt: resumenTxt,
+        productos: carrito
+      };
+    }
+
+    // Al cargar, muestra el resumen
+    const datosPedido = mostrarResumen();
+
+    document.getElementById('formPedido').onsubmit = function(e) {
+      e.preventDefault();
+      const form = this;
+      const datos = {
+        nombre: form.nombre.value,
+        apellidos: form.apellidos.value,
+        direccion: form.direccion.value,
+        cp: form.cp.value,
+        ciudad: form.ciudad.value,
+        telefono: form.telefono.value,
+        email: form.email.value,
+        total: datosPedido.total,
+        resumen: datosPedido.resumenTxt,
+        resumenHtml: datosPedido.resumenHtml
+      };
+
+      // ENVÍA AL CLIENTE
+      emailjs.send('service_l5m2e1i', 'template_eebnaxt', {
+        to_email: datos.email,
+        nombre: datos.nombre,
+        resumen: datos.resumen,
+        total: datos.total
+      }).then(function() {
+        // ENVÍA A TI MISMO
+        emailjs.send('service_l5m2e1i', 'template_us7k76s', {
+          to_email: 'zzznt.contacto@gmail.com',
+          nombre: datos.nombre,
+          apellidos: datos.apellidos,
+          direccion: datos.direccion,
+          cp: datos.cp,
+          ciudad: datos.ciudad,
+          telefono: datos.telefono,
+          email: datos.email,
+          resumen: datos.resumen,
+          total: datos.total
+        }).then(function() {
+          // Mostrar popup de agradecimiento
+          document.getElementById('popup-gracias').style.display = 'flex';
+          localStorage.removeItem('carrito');
+          form.reset();
+        }, function(error) {
+          document.getElementById('mensaje').innerHTML = '<div class="error">Error al enviar el correo a la tienda.<br>' + error.text + '</div>';
+        });
+      }, function(error) {
+        document.getElementById('mensaje').innerHTML = '<div class="error">Error al enviar el correo al cliente.<br>' + error.text + '</div>';
+      });
+    }
+
+    // Botón para volver al inicio
+    document.getElementById('volver-inicio').onclick = function() {
+      window.location.href = "index.html";
+    };
+  </script>
+</body>
+</html>
