@@ -100,6 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
       priceElement.textContent = basePrice.toFixed(2);
     }
     
+
+
+
+
+
+
     // Añadir al carrito
     addToCartBtn.addEventListener('click', function() {
       const product = {
@@ -110,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
       };
       
       console.log('Producto añadido:', product);
-      alert(`¡Gorra personalizada añadida al carrito! Base: ${selectedBaseColor}, Estrellas: ${selectedStarsColor}`);
+     
       
       // Aquí puedes añadir el código para añadir realmente al carrito
       // Ya sea enviándolo a una API o guardándolo en localStorage
@@ -175,4 +181,87 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
 // POP UP CARRITO 
 
+
+
+
+
+
+// Funciones carrito y pop-up para la gorra personalizada
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Si tienes icono de carrito, actualiza el contador ---
+  function getCarrito() {
+    return JSON.parse(localStorage.getItem('carrito')) || [];
+  }
+  function setCarrito(carrito) {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }
+  function actualizarCartCount() {
+    if (!document.getElementById('cart-count')) return;
+    const carrito = getCarrito();
+    const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+    document.getElementById('cart-count').textContent = total > 0 ? total : '';
+  }
+  actualizarCartCount();
+
+  // --- Pop-up ---
+  function mostrarCartPopup(producto) {
+    const popup = document.getElementById('cart-popup');
+    const content = document.getElementById('cart-popup-content');
+    content.innerHTML = `
+      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <div><strong>${producto.nombre}</strong></div>
+      <div>Color base: ${producto.colorBase}</div>
+      <div>Color estrellas: ${producto.colorEstrellas}</div>
+      <div>Precio: ${producto.precio.toFixed(2)} €</div>
+    `;
+    popup.style.display = 'flex';
+  }
+  function cerrarCartPopup() {
+    document.getElementById('cart-popup').style.display = 'none';
+  }
+  document.getElementById('seguir-comprando').onclick = cerrarCartPopup;
+  document.getElementById('ir-carrito').onclick = function() {
+    window.location.href = "carrito.html";
+  };
+  document.querySelector('.cart-popup-close').onclick = cerrarCartPopup;
+  document.getElementById('cart-popup').onclick = function(e) {
+    if (e.target === this) cerrarCartPopup();
+  };
+
+  // --- Evento botón COMPRAR ---
+  document.getElementById('add-to-cart').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Recoge la selección actual
+    const nombre = "GORRA PERSONALIZADA";
+    const precio = parseFloat(document.getElementById('price').textContent.replace(',', '.'));
+    const imagen = document.getElementById('base-cap').src; // Imagen base de la gorra
+    const colorBase = document.querySelector('.color-option.selected').getAttribute('data-color');
+    const colorEstrellas = document.querySelector('.star-option.selected').getAttribute('data-color');
+
+    // Crea el objeto producto
+    const producto = {
+      id: nombre + colorBase + colorEstrellas, // Un id único por combinación
+      nombre,
+      precio,
+      imagen,
+      colorBase,
+      colorEstrellas,
+      cantidad: 1
+    };
+
+    // Añade al carrito (sumando cantidad si ya existe)
+    let carrito = getCarrito();
+    const idx = carrito.findIndex(p => p.id === producto.id);
+    if (idx !== -1) {
+      carrito[idx].cantidad += 1;
+      mostrarCartPopup(carrito[idx]);
+    } else {
+      carrito.push(producto);
+      mostrarCartPopup(producto);
+    }
+    setCarrito(carrito);
+    actualizarCartCount();
+  });
+});
 

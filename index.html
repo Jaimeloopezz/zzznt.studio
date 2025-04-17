@@ -537,6 +537,72 @@
       </section>
 
 
+      <!-- POP-UP DEL CARRITO para la gorra -->
+<div id="cart-popup" class="cart-popup-backdrop" style="display:none;">
+  <div class="cart-popup">
+    <button class="cart-popup-close" aria-label="Cerrar pop-up">&times;</button>
+    <h4>Producto añadido al carrito</h4>
+    <div id="cart-popup-content"></div>
+    <div class="cart-popup-actions">
+      <button id="seguir-comprando" class="btn btn-secondary">Continuar comprando</button>
+      <button id="ir-carrito" class="btn btn-warning">Finalizar pedido</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.cart-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-popup {
+  background: #232323;
+  color: #fff;
+  border-radius: 12px;
+  padding: 32px 24px 24px 24px;
+  min-width: 320px;
+  max-width: 95vw;
+  box-shadow: 0 8px 32px #000a;
+  position: relative;
+  text-align: center;
+  animation: popupfadein 0.25s;
+}
+@keyframes popupfadein { from { opacity:0; transform:scale(0.98);} to { opacity:1; transform:scale(1);} }
+.cart-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+}
+.cart-popup-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.cart-popup img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #333;
+  margin-bottom: 10px;
+}
+.btn-warning { background: #ffd700; color: #232323; border: none; border-radius: 5px; padding: 10px 18px; font-weight: bold; cursor: pointer; }
+.btn-warning:hover { background: #e6c200; }
+.btn-secondary { background: #444; color: #fff; border: none; border-radius: 5px; padding: 10px 18px; font-weight: bold; cursor: pointer; }
+.btn-secondary:hover { background: #555; }
+</style>
+
 
 
       
