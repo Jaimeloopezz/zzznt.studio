@@ -120,7 +120,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.color-circle').forEach(circle => {
+      circle.addEventListener('click', function(event) {
+        event.preventDefault();     // Evita que el clic siga el enlace
+        event.stopPropagation();    // Evita que el clic se propague a elementos padres
+  
+        const newImage = this.getAttribute('data-image');
+        const productCard = this.closest('.product-card');
+        const productImage = productCard.querySelector('.product-image');
+  
+        productImage.style.opacity = '0';
+        setTimeout(() => {
+          productImage.src = newImage;
+          productImage.style.opacity = '1';
+        }, 300);
+      });
+    });
+  });
+  
 
 
 
