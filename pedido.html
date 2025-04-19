@@ -135,37 +135,51 @@
   </div>
 
   <script>
-    // Inicializa EmailJS con tu Public Key
     emailjs.init('GVJy8IH9edQPxi08I');
-
+    
     // Muestra el resumen del pedido
     function mostrarResumen() {
       const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
       let total = 0;
-      let html = '';
-      let resumenTxt = '';
-      carrito.forEach(prod => {
-        total += prod.precio * prod.cantidad;
-        html += `<div>
-          <img src="${prod.imagen}" alt="">
-          <span>${prod.nombre} (${prod.color}, Talla: ${prod.talla}) x${prod.cantidad} - ${prod.precio.toFixed(2)} €</span>
-        </div>`;
-        resumenTxt += `${prod.nombre} (${prod.color}, Talla: ${prod.talla}) x${prod.cantidad} - ${prod.precio.toFixed(2)} €\n`;
-      });
+      const resumenHTML = carrito.map(prod => `
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#181818; border-radius:8px; padding:18px; margin-bottom:20px;">
+          <tr>
+            <td style="padding-bottom:12px; width:30%;">
+              <img src="${prod.imagen}" alt="${prod.nombre}" width="100%" style="border-radius:8px; background:#333;">
+            </td>
+            <td style="vertical-align:top; padding-left:12px; color:#fff;">
+              <div style="font-weight:bold; margin-bottom:8px;">${prod.nombre}</div>
+              ${prod.talla ? `<div>Talla: ${prod.talla}</div>` : ''}
+              ${prod.color ? `<div>Color: ${prod.color}</div>` : ''}
+              <div>Precio unitario: ${prod.precio.toFixed(2)} €</div>
+              <div>Cantidad: ${prod.cantidad}</div>
+              <div style="margin-top:8px; color:#ffd700;">Subtotal: ${(prod.precio * prod.cantidad).toFixed(2)} €</div>
+            </td>
+          </tr>
+        </table>
+      `).join('');
+    
+      // Calcula totales
+      const subtotal = carrito.reduce((acc, prod) => acc + (prod.precio * prod.cantidad), 0);
+      const envio = 5.00;
+      const totalPedido = subtotal + envio;
+    
+      // También muestra el resumen en la página
+      let html = resumenHTML;
       html += `<div style="margin-top:10px;"><strong>Coste de envío:</strong> 5.00 €</div>`;
-      html += `<div style="margin-top:4px;"><strong>Total:</strong> ${(total+5).toFixed(2)} €</div>`;
+      html += `<div style="margin-top:4px;"><strong>Total:</strong> ${totalPedido.toFixed(2)} €</div>`;
       document.getElementById('pedidoResumen').innerHTML = html;
+    
       return {
-        total: (total+5).toFixed(2),
-        resumenHtml: html,
-        resumenTxt: resumenTxt,
+        total: totalPedido.toFixed(2),
+        resumenHTML: resumenHTML,
         productos: carrito
       };
     }
-
+    
     // Al cargar, muestra el resumen
     const datosPedido = mostrarResumen();
-
+    
     document.getElementById('formPedido').onsubmit = function(e) {
       e.preventDefault();
       const form = this;
@@ -178,10 +192,9 @@
         telefono: form.telefono.value,
         email: form.email.value,
         total: datosPedido.total,
-        resumen: datosPedido.resumenTxt,
-        resumenHtml: datosPedido.resumenHtml
+        resumen: datosPedido.resumenHTML
       };
-
+    
       // ENVÍA AL CLIENTE
       emailjs.send('service_l5m2e1i', 'template_eebnaxt', {
         to_email: datos.email,
@@ -213,11 +226,11 @@
         document.getElementById('mensaje').innerHTML = '<div class="error">Error al enviar el correo al cliente.<br>' + error.text + '</div>';
       });
     }
-
+    
     // Botón para volver al inicio
     document.getElementById('volver-inicio').onclick = function() {
       window.location.href = "index.html";
     };
-  </script>
+    </script>
 </body>
 </html>
