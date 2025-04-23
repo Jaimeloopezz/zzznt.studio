@@ -205,7 +205,7 @@ transition: transform 1s ease-in-out;
 }
 
 .project video:hover {
-    border: 3px solid #fff;
+    
     transition: all 0.1s ease-in-out;
     filter: blur(0);
    
@@ -367,6 +367,12 @@ section {
 /* MERCHANDISING  */
 
 
+.merchtext {
+  font-size: 6rem;
+  padding-top: 2em;
+  
+}
+
 
 
 .product-grid {
@@ -460,12 +466,29 @@ section {
     .product-grid {
       grid-template-columns: repeat(3, 1fr); /* Cambia a 3 productos por fila en pantallas medianas */
     }
+
+    .merchtext {
+      font-size: 4em;
+    }
+  }
+
+
+  @media (max-width: 1000px) {
+    
+
+    .merchtext {
+      font-size: 3em;
+    }
   }
   
   @media (max-width: 768px) {
     .product-grid {
       grid-template-columns: repeat(2, 1fr); /* Cambia a 2 productos por fila en pantallas pequeñas */
     }
+    .merchtext {
+      font-size: 2.5em;
+    }
+    
   }
   
   
