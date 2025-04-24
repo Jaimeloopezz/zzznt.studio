@@ -966,6 +966,10 @@ padding-top: 1rem;
 padding-bottom: 1rem;
 }
 
+.footer-email{
+  border: 2px solid #ffffff;
+  }
+
 .legals {
     display: flex;
     flex-direction: row;
