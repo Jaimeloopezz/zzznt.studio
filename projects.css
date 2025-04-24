@@ -1,0 +1,342 @@
+@font-face {
+    font-family: 'OwnersTRIALXWide';  /* Nombre que usarás para la fuente */
+    src: url('fonts/OwnersTRIALXWide-Medium-BF64361ef4cb276.otf') format('opentype');  /* Ruta y formato de la fuente */
+    font-weight: normal;
+    font-style: normal;
+    }
+
+
+body {
+    margin: 0;
+    font-family: 'OwnersTRIALXWide', sans-serif;
+    background-color: #000000;
+    color: #fff;
+}
+
+
+
+
+
+    
+
+
+
+
+    /* gallery  */
+
+
+    .video-top {
+        padding-top: 100px;
+        width: 100%;
+        height: 600px;
+  
+  overflow: hidden;
+  position: relative;
+    }
+    
+    .video-top video {
+        width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+    }
+
+
+.full-width-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+
+.project-detail-info {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 7em;
+    align-items: flex-end;
+    
+}
+
+.project-detail-info-left {
+    width: 100%;
+    padding-right: 3em;
+    padding-left: 5em;
+    padding-bottom: 3em;
+}
+
+.project-detail-info-left h2 {
+    font-family: 'OwnersTRIALXWide', sans-serif;
+    font-size: 12em;
+    margin-bottom: 10px;
+}
+
+.project-concepts {
+    display: flex;
+    
+    gap: 10px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.project-concepts span {
+    font-size: 1.5em;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.project-detail-info-right {
+    width: 40%;
+    padding-right: 5em;
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+}
+
+/* Estilos para la galería */
+.gallery {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.square-images {
+    display: flex;
+    gap: 20px;
+}
+
+.square-image {
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%; /* Proporción 1:1 para hacerla cuadrada */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.square-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.full-width-media {
+    width: 100%;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Ajustes para dispositivos móviles */
+
+@media (max-width: 2256px) {
+    
+    .project-detail-info-left h2 {
+        font-size: 10em;
+        
+    }
+
+    
+
+}
+
+@media (max-width: 2010px) {
+    
+    .project-detail-info-left h2 {
+        font-size: 9em;
+        
+    }
+
+    
+
+}
+
+@media (max-width: 1800px) {
+    
+    .project-detail-info-left h2 {
+        font-size: 8em;
+        
+    }
+
+    
+
+}
+
+
+@media (max-width: 1680px) {
+    
+    .project-detail-info-right {
+        width: 60%;
+        
+    }
+
+    .project-detail-info-left h2 {
+        font-size: 7em;
+        
+    }
+
+}
+
+@media (max-width: 1470px) {
+    
+    .project-detail-info-left h2 {
+        font-size: 6em;
+        
+    }
+    
+    .video-top {
+        height: 500px;
+    }
+
+}
+
+@media (max-width: 1300px) {
+    
+    .project-detail-info-left h2 {
+        font-size: 5em;
+        
+    }
+
+    .project-concepts span {
+        font-size: 1em;
+    }
+    
+    .video-top {
+        height: 400px;
+        
+      }
+
+}
+
+@media (max-width: 1100px) {
+    
+    .project-detail-info-right {
+        width: 80%;
+        
+    }
+
+    .project-detail-info-left h2 {
+        font-size: 4em;
+        
+    }
+
+    
+
+}
+
+@media (max-width: 864px) {
+    
+    
+
+    .video-top {
+        height: 300px;
+        
+      }
+
+}
+
+
+
+
+@media (max-width: 768px) {
+    .project-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-info-left,
+    .project-info-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .square-images {
+        flex-direction: column;
+    }
+
+    .square-image {
+        width: 100%;
+        padding-bottom: 100%; /* 1:1 en móviles */
+    }
+
+    
+  
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -- NAV BAR -- */
+.navbar{
+    background: linear-gradient(rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+    
+    }
+    
+    
+    
+    .navbar-brand {
+    font-size: 2rem;
+    font-family: "roc-grotesk", sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    }
+    
+    .navbar-brand img {
+    max-height: 50px;
+    }
+    
+    .navbar-toggler{
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff;
+    }
+    
+    .navbar-toggler-icon{
+    
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    color: #fff;
+    }
+    
+    
+    
+    
+    .nav-link {
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 1.5rem;
+    transition: 0.5s all ease-in-out;
+    }
+    
+    
+    .nav-link:hover {
+    color: #ffffff !important;
+    font-weight: bold;
+    opacity: 1;
+    transition: transform 1s ease-in-out;
+    }
