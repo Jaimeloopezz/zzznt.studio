@@ -107,7 +107,7 @@ body {
 /* Estilos para la galería */
 .gallery {
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
