@@ -193,6 +193,7 @@ transition: transform 1s ease-in-out;
   font-weight: bold;
   transition: background-color 0.3s ease;
   user-select: none;
+  font-family: 'Arial', sans-serif;
 }
 
 .add-to-cart-detail:hover {
@@ -203,6 +204,7 @@ transition: transform 1s ease-in-out;
   margin-top: 30px;
   line-height: 1.6;
   color: #ccc;
+  font-family: 'Arial', sans-serif;
 }
 
 /* Responsive */

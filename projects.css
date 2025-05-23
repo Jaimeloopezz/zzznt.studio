@@ -293,7 +293,18 @@ body {
 }
 
 
+@media (max-width: 630px) {
+    
+    
 
+    .project-detail-info-left h2 {
+        font-size: 3em;
+        
+    }
+
+    
+
+}
 
 
 
