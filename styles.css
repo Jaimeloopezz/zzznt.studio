@@ -291,7 +291,7 @@ transition: transform 0.5s ease-in-out;
     right: 50%;
     bottom: 50%;
     transform: translate(50%, 50%);
-    font-size: 6rem;
+    font-size: 5.8rem;
    
    
 }
@@ -476,6 +476,10 @@ section {
     .merchtext {
       font-size: 4em;
     }
+
+    .proy-text {
+      font-size: 4em;
+    }
   }
 
 
@@ -492,6 +496,10 @@ section {
       grid-template-columns: repeat(2, 1fr); /* Cambia a 2 productos por fila en pantallas pequeñas */
     }
     .merchtext {
+      font-size: 2.5em;
+    }
+
+    .proy-text {
       font-size: 2.5em;
     }
     
@@ -774,7 +782,7 @@ transition: transform 1s ease-in-out;
     }
 
     .project.expanded .project-text {    
-        font-size: 5rem; 
+        font-size: 4.8rem; 
     }
 }
 
@@ -792,7 +800,7 @@ transition: transform 1s ease-in-out;
     }
 
     .project.expanded .project-text {    
-        font-size: 4rem; 
+        font-size: 3.8rem; 
     }
 
 }
