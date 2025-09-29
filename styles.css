@@ -392,6 +392,10 @@ section {
     text-align: center;
   }
   
+.product-card h3 {
+  font-size: 1em;
+}
+
   .image-container {
     position: relative;
     overflow: hidden; /* Evita que la imagen salga del contenedor */
@@ -517,9 +521,12 @@ section {
 /* GORRA EDITABLE  */
 
 
+
+
 .product-customizer {
     max-width: 1200px;
     margin: 0 auto;
+    scale: 1;
   }
   
   h1 {
@@ -851,6 +858,11 @@ transition: transform 1s ease-in-out;
         font-size: 2em;
     }
 
+    .product-customizer {
+    
+    scale: 0.8;
+  }
+
     
 }
 
@@ -860,6 +872,10 @@ transition: transform 1s ease-in-out;
         font-size: 1.5em;
     }
 
+    .product-customizer {
+    
+    scale: 0.7;
+  }
     
 }
 
@@ -869,6 +885,11 @@ transition: transform 1s ease-in-out;
     #text {
         font-size: 1.2em;
     }
+
+    .product-customizer {
+    
+    scale: 0.8;
+  }
 
     
 }
